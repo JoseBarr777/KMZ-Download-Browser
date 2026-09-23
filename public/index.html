@@ -4,10 +4,71 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TxDOT KMZ Downloads</title>
+  <meta name="description" content="Download Google Earth KML/KMZ files generated from the current published TxDOT overlay release.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>TxDOT KMZ Downloads</h1>
+  <header class="site-header">
+    <div class="container">
+      <h1>TxDOT KMZ Downloads</h1>
+      <p class="lede">Download Google Earth KML/KMZ files generated from the current published TxDOT overlay release.</p>
+      <dl class="release-meta" id="release-meta" hidden>
+        <div>
+          <dt>Current release</dt>
+          <dd id="release-id"></dd>
+        </div>
+        <div id="release-promoted-row">
+          <dt>Promoted</dt>
+          <dd><time id="release-promoted"></time></dd>
+        </div>
+      </dl>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="status" id="status">
+      <p id="status-message" aria-live="polite">Loading current release…</p>
+      <button type="button" class="button button-secondary" id="retry" hidden>Retry</button>
+    </div>
+
+    <noscript>
+      <p class="status">This page needs JavaScript enabled to load the current release.</p>
+    </noscript>
+
+    <div id="browser" hidden>
+      <section class="panel" id="master-section" aria-labelledby="master-heading">
+        <h2 id="master-heading">Master Download</h2>
+        <p class="hint">Use this if you want the master NetworkLink structure covering every district.</p>
+        <div class="download-line" id="master-download"></div>
+      </section>
+
+      <section class="panel" id="district-section" aria-labelledby="district-heading">
+        <h2 id="district-heading">Browse by District</h2>
+        <div class="field">
+          <label for="district-select">District</label>
+          <select id="district-select"></select>
+        </div>
+
+        <h3 class="subheading">District download</h3>
+        <div class="download-line" id="district-download"></div>
+
+        <h3 class="subheading" id="county-heading">Counties</h3>
+        <ul class="file-list" id="county-list" aria-labelledby="county-heading"></ul>
+      </section>
+
+      <section class="panel" id="admin-section" aria-labelledby="admin-heading">
+        <h2 id="admin-heading">Administrative Boundaries</h2>
+        <ul class="file-list" id="admin-list" aria-labelledby="admin-heading"></ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p id="footer-release" hidden>Data source release: <span id="footer-release-id"></span></p>
+    </div>
+  </footer>
+
   <script src="app.js" defer></script>
 </body>
 </html>

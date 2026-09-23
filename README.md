@@ -19,8 +19,8 @@ Releases are discovered at runtime, so the frontend never hard-codes release IDs
 ## Hosts
 
 - Artifact host: https://files.kmz.josebarrera.cloud
-- Frontend (planned, Cloudflare Pages): https://kmz.josebarrera.cloud
+- Frontend (Cloudflare Workers Static Assets): https://kmz.josebarrera.cloud
 
 ## Local preview
 
-Open `index.html` directly, or serve the folder with any static file server.
+Open `public/index.html` directly, or serve `public/` with any static file server. Only `public/` is deployed (see `assets.directory` in `wrangler.jsonc`).

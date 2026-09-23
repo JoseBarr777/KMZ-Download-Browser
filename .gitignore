@@ -12,3 +12,6 @@ Desktop.ini
 *.swp
 *.swo
 *~
+
+# Wrangler local state
+.wrangler/
